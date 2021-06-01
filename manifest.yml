@@ -1,6 +1,6 @@
 # YAML
 id: dynamicscreen.message2
-name: Message
+name: app.name
 description: Display basic or advanced messages.
 version: 0.1.0-beta
 api-level: 1
