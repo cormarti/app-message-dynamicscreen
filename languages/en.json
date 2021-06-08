@@ -1,0 +1,28 @@
+{
+    "app": {
+        "name": "Message",
+        "description": "Display beautiful message, as trucks are",
+        "author": {
+            "name": "DynamicScreen",
+            "email": "bonjour@dynamicscreen.com",
+            "note": "Written with love <3 Buy me a cofee @ itsajoke.com !"
+        }
+    },
+    "privileges": {
+        "needs_account": {
+            "google": {
+                "why": "Because it's required..."
+            }
+        }
+    },
+    "modules": {
+        "simple_message": {
+            "name": "Basic message",
+            "description": "Display title and description, easy peasy"
+        },
+        "advanced_message": {
+            "name": "Interactive message",
+            "description": "Display customizable advanced message !"
+        }
+    }
+}

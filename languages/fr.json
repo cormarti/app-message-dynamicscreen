@@ -1,0 +1,28 @@
+{
+    "app": {
+        "name": "Message",
+        "description": "Afficher de beaux message, comme un camion <3",
+        "author": {
+            "name": "DynamicScreen",
+            "email": "bonjour@dynamicscreen.com",
+            "note": "Ecrit avec amour <3"
+        }
+    },
+    "privileges": {
+        "needs_account": {
+            "google": {
+                "why": "Parce que c'est comme ça"
+            }
+        }
+    },
+    "modules": {
+        "simple_message": {
+            "name": "Message simple",
+            "description": "Afficher un titre et une description, simple comme bonjour !"
+        },
+        "advanced_message": {
+            "name": "Message intéractif",
+            "description": "Afficher un message interactif customisable !"
+        }
+    }
+}

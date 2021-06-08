@@ -1,1 +1,1 @@
-# app-image-dynamiscreen
+# app-message-dynamiscreen
