@@ -4,10 +4,12 @@
             <div class="container-message">
                 <div class="title">
                     <strong>{{ slide.data.title }}</strong>
+                  <strong>{{ slide.data.title }}</strong>
                 </div>
                 <div class="container-animation">
                     <div class="message-text">
                         <div v-html="slide.data.message"></div>
+                      <div v-html="slide.data.message"></div>
                     </div>
                 </div>
             </div>
@@ -18,11 +20,10 @@
 <script>
 import {defineComponent} from "vue";
 import i18next from "i18next";
-import en from "../languages/en.json";
-import fr from "../languages/fr.json";
+import en from "../../app-message/languages/en.json";
+import fr from "../../app-message/languages/fr.json";
 
 export default defineComponent({
-  name: "SimpleMessage",
         props: { context: {type: Object} },
       mounted() {
           this.initI18n();

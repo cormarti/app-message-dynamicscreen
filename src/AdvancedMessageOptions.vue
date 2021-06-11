@@ -1,6 +1,7 @@
 <template>
     <div>
-        <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+      <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+      <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
         <div class="mt-1 relative rounded-md shadow-sm">
             <input type="text" name="title" id="title" class="block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm rounded-md" placeholder="you@example.com" value="adamwathan" aria-invalid="true" aria-describedby="email-error">
             <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -16,17 +17,17 @@
 <script>
 import {defineComponent} from "vue";
 import i18next from "i18next";
-import en from "../languages/en.json";
-import fr from "../languages/fr.json";
+import en from "../../app-message/languages/en.json";
+import fr from "../../app-message/languages/fr.json";
 
 export default defineComponent({
-    name: "SimpleMessageOptions",
+    name: "AdvancedMessageOptions",
   props: { context: {type: Object} },
   data() {
         return {};
     },
   mounted() {
-    this.initI18n();
+      this.initI18n();
   },
   methods: {
     initI18n() {
@@ -34,8 +35,8 @@ export default defineComponent({
         fallbackLng: 'en',
         lng: 'fr',
         resources: {
-          en: {translation: en},
-          fr: {translation: fr},
+          en: { translation: en },
+          fr: { translation: fr },
         },
         debug: true,
         ns: {
