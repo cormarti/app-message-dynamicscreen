@@ -2,7 +2,9 @@
 id: dynamicscreen.message2
 name: app.name
 description: Display basic or advanced messages.
-version: 0.1.0-beta
+logo: fa fa-info-circle
+version: 0.1.0
+channel: stable
 api-level: 1
 author:
   name: DynamicScreen
@@ -12,7 +14,7 @@ privileges:
     - type: google
       why: Please give it and do not try to understand
     - type: microsoft
-      why: Microsoft for life
+      why: Microsoft is good, nah i'm joking.
 modules:
   - name: Simple Message
     type: slide
