@@ -1,0 +1,22 @@
+{
+  "name": "dynamicscreen-message",
+  "version": "0.1.0",
+  "description": "Display beautiful messages",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DynamicScreen",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.29.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cormarti/app-message-dynamicscreen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cormarti/app-message-dynamicscreen/issues"
+  },
+  "homepage": "https://github.com/cormarti/app-message-dynamicscreen#readme"
+}
