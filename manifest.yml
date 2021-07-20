@@ -3,7 +3,7 @@ id: dynamicscreen.message2
 name: app.name
 description: Display basic or advanced messages.
 logo: fa fa-info-circle
-version: 0.1.0
+version: 0.2.0
 channel: stable
 api-level: 1
 author:
