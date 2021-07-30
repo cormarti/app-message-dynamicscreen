@@ -1,2 +1,3 @@
 # app-message-dynamiscreen
-Hello world
+
+```php artisan migrate```
