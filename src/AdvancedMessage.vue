@@ -3,13 +3,15 @@
         <div class="slide-content" :style="{backgroundColor: bgColor}">
             <div class="container-message">
                 <div class="title">
+                    <div> {{ trans('app.name') }}></div>
+
                     <strong>{{ slide.data.title }}</strong>
-                  <strong>{{ slide.data.title }}</strong>
                 </div>
                 <div class="container-animation">
                     <div class="message-text">
+                        <div> {{ trans('app.description') }}></div>
+
                         <div v-html="slide.data.message"></div>
-                      <div v-html="slide.data.message"></div>
                     </div>
                 </div>
             </div>
@@ -37,6 +39,9 @@ export default defineComponent({
         }
       },
       methods: {
+            trans(key) {
+                return i18next.t(key);
+            },
         initI18n() {
           i18next.init({
             fallbackLng: 'en',
