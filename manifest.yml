@@ -31,7 +31,7 @@ modules:
     description: Display advanced customizable message
     vue:
       component: src/AdvancedMessage.vue
-      options: src/AvancedMessageOptions.vue
+      options: src/AdvancedMessageOptions.vue
     php:
       handler: Vendor\DynamicScreenMessage\MessageHandler
     node:
