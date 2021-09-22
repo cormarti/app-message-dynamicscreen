@@ -9,6 +9,7 @@
   "author": "DynamicScreen",
   "license": "MIT",
   "dependencies": {
+    "i18next": "^20.4.0",
     "moment": "^2.29.1"
   },
   "repository": {

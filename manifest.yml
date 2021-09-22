@@ -20,8 +20,8 @@ modules:
     type: slide
     description: Display basic message with title and description
     vue:
-      component: src/SimpleMessage.vue
-      options: src/SimpleMessageOptions.vue
+      component: src/simple-message/slide/Module.ts
+      options: src/simple-message/SimpleMessageOptions.vue
     php:
       handler: Vendor\DynamicScreenMessage\MessageHandler
     node:
@@ -30,8 +30,8 @@ modules:
     type: slide
     description: Display advanced customizable message
     vue:
-      component: src/AdvancedMessage.vue
-      options: src/AdvancedMessageOptions.vue
+      component: src/advanced-message/slide/Module.ts
+      options: src/advanced-message/AdvancedMessageOptions.vue
     php:
       handler: Vendor\DynamicScreenMessage\MessageHandler
     node:

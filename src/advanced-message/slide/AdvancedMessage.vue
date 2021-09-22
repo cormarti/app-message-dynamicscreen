@@ -1,0 +1,121 @@
+<template>
+  <div class="container">
+    <div class="slide-content" :style="{ backgroundColor: bgColor }">
+      <div class="container-message">
+        <div class="title">
+          <div> {{ trans('app.name') }} </div>
+          <p class="a">{{ trans('app.description') }}</p>
+
+<!--      <div>{{ trans('modules.advanced_message.name') }}</div>-->
+          <strong> {{ slide.data.title }} </strong>
+        </div>
+        <div class="container-animation">
+          <div class="message-text">
+            <div> {{ trans('app.description') }} </div>
+            <div> {{ trans('modules.advanced_message.description') }} </div>
+
+            <div v-html="slide.data.message"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import {defineComponent} from "vue";
+import i18next from "i18next";
+import en from "../languages/en.json";
+import fr from "../languages/fr.json";
+
+export default defineComponent({
+  props: { context: {type: Object} },
+  mounted() {
+    this.initI18n();
+  },
+  computed: {
+    slide() {
+      return this.context.slide;
+    },
+    bgColor() {
+      return this.slide.data.background_color;
+    }
+  },
+  methods: {
+    trans(key) {
+      return i18next.t(key);
+    },
+    initI18n() {
+      i18next.init({
+        fallbackLng: 'en',
+        lng: 'fr',
+        resources: {
+          en: { translation: en },
+          fr: { translation: fr },
+        },
+        debug: true,
+        ns: {
+          namespaces: ['translation'],
+          defaultNs: 'translation'
+        }
+      }, (err, t) => {
+        if (err) return console.log('something went wrong loading translations', err);
+      });
+    },
+  },
+});
+</script>
+
+<style>
+
+.slide-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+
+.container-animation {
+  animation:
+    slideUp 0.75s .3s cubic-bezier(0.17,.88,.32,1.27) both,
+    fadeIn .25s .3s ease-in both;
+  animation-delay: 0.5s;
+}
+
+.message-text {
+  color: #ffffff;
+  text-overflow: ellipsis;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  text-align: justify;
+}
+
+
+.line hr {
+  border: 3px solid #ffffff;
+  width: 4%;
+  margin: 0.5em 0 0 1.6em;
+}
+
+@keyframes slideUp {
+  from {transform: translateY(200%);}
+  to {transform:translateY(0%);}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+</style>
