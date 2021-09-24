@@ -6,7 +6,7 @@ import {
   ISlideContext,
   IPublicSlide,
   SlideModule
-} from "../../../../../../../../dynamicscreen-sdk-js/src";
+} from "dynamicscreen-sdk-js";
 
 import { VNode } from 'vue';
 import i18next from "i18next";
@@ -53,53 +53,59 @@ export default class SimpleMessageSlideModule extends SlideModule {
 
   // @ts-ignore
   setup(props, ctx) {
-    const { h, reactive, computed } = ctx;
-    let slide = reactive(props.slide) as IPublicSlide;
-    const context = reactive(props.slide.context);
-    const bgColor = computed(() => slide.data.color);
+    const { h, reactive, ref, Transition } = ctx;
 
-    this.context = context
+    const slide = reactive(props.slide) as IPublicSlide;
+    this.context = reactive(props.slide.context);
 
-    context.onPrepare(async () => {
-      console.log('SimpleMessage: onPrepare');
+
+    const bgColor = ref(slide.data.backgroundColor);
+    const title = ref(slide.data.title)
+    const message = ref(slide.data.message)
+
+    this.context.onPrepare(async () => {
+      console.log('Message: onPrepare')
+
     });
 
-    context.onReplay(async () => {
-      console.log('SimpleMessage: onReplay')
+    this.context.onReplay(async () => {
+      console.log('Message: onReplay')
     });
 
-    context.onPlay(async () => {
-      console.log('SimpleMessage: onPlay')
+    this.context.onPlay(async () => {
+      console.log('Message: onPlay')
     });
 
-    context.onEnded(async () => {
-      console.log('SimpleMessage: onEnded')
+    // context.onPause(async () => {
+    //   console.log('Message: onPause')
+    // });
+
+    this.context.onEnded(async () => {
+      console.log('Message: onEnded')
     });
 
-    return () => h("div", {
-      class: "container"
-    }, [
-      h("div", {}, [
-        h("p", {
-          class: "a"
-        }, this.trans('modules.simple_message.title')),
-        h("p", {
-          class: "b"
-        }, this.trans('modules.simple_message.description')),
-        h("div", {
-          class: "slide-content center vertical-center-wrapper flex-column",
-          style: [{ backgroundColor: bgColor }],
+    return () =>
+      h("div", {
+        class: 'h-full w-full flex flex-col justify-center items-center ' + bgColor.value
+      }, [
+        h(Transition, {
+          appear: true,
+          enterFromClass: "opacity-0 translate-y-10",
+          enterToClass: "opacity-100 translate-y-0"
         }, [
-          h('div', { class: 'container-message' }, [
-            h("div", {
-              class: "title",
-            }, [
-              h('strong', slide.data.title),
-              h('strong', slide.data.message)
-            ])
-          ]),
+          h("div", {
+            class: "font-sans w-1/2 text-6xl mb-16 font-bold text-white duration-500 ease-out transition-all transform"
+          }, title.value),
         ]),
-      ]),
-    ]) as VNode
+        h(Transition, {
+          appear: true,
+          enterFromClass: "opacity-0 translate-y-10",
+          enterToClass: "opacity-100 translate-y-0"
+        }, [
+          h("div", {
+            class : "font-sans w-1/2 text-5xl font-bold text-white delay-200 duration-500 delay-200 ease-out transition-all transform"
+          }, message.value)
+        ])
+      ])
   }
 }

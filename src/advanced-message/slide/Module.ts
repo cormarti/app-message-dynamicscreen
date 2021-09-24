@@ -6,15 +6,15 @@ import {
   ISlideContext,
   IPublicSlide,
   SlideModule
-} from "../../../../../../../../dynamicscreen-sdk-js/src";
+} from "dynamicscreen-sdk-js";
 
 import { VNode } from 'vue';
 import i18next from "i18next";
 
-const en = require("../../languages/en.json");
-const fr = require("../../languages/fr.json");
+const en = require("../../../languages/en.json");
+const fr = require("../../../languages/fr.json");
 
-export default class SimpleMessageSlideModule extends SlideModule {
+export default class AdvancedMessageSlideModule extends SlideModule {
   constructor(context: ISlideContext) {
     super(context);
   }
@@ -24,17 +24,17 @@ export default class SimpleMessageSlideModule extends SlideModule {
   };
 
   async onReady() {
-    console.log('SimpleMessage working to be ready...')
+    console.log('AdvancedMessage working to be ready...')
 
     return true;
   };
 
   onMounted() {
-    console.log('SimpleMessage: onMounted')
+    console.log('AdvancedMessage: onMounted')
   }
 
   onUpdated() {
-    console.log('SimpleMessage: onUpdated')
+    console.log('AdvancedMessage: onUpdated')
   }
 
   initI18n() {
@@ -53,53 +53,58 @@ export default class SimpleMessageSlideModule extends SlideModule {
 
   // @ts-ignore
   setup(props, ctx) {
-    const { h, reactive, computed } = ctx;
-    let slide = reactive(props.slide) as IPublicSlide;
-    const context = reactive(props.slide.context);
-    const bgColor = computed(() => slide.data.color);
+    const { h, reactive, ref, Transition } = ctx;
 
-    this.context = context
+    const slide = reactive(props.slide) as IPublicSlide;
+    this.context = reactive(props.slide.context);
 
-    context.onPrepare(async () => {
-      console.log('SimpleMessage: onPrepare');
-    });
+    const bgUrl = ref(slide.data.backgroundImage)
 
-    context.onReplay(async () => {
-      console.log('SimpleMessage: onReplay')
-    });
-
-    context.onPlay(async () => {
-      console.log('SimpleMessage: onPlay')
-    });
-
-    context.onEnded(async () => {
-      console.log('SimpleMessage: onEnded')
-    });
-
-    return () => h("div", {
-      class: "container"
-    }, [
-      h("div", {}, [
-        h("p", {
-          class: "a"
-        }, this.trans('modules.simple_message.title')),
-        h("p", {
-          class: "b"
-        }, this.trans('modules.simple_message.description')),
-        h("div", {
-          class: "slide-content center vertical-center-wrapper flex-column",
-          style: [{ backgroundColor: bgColor }],
+    return () =>
+      h("div", {
+        class: 'h-full bg-fixed w-full bg-blue-400 flex flex-col justify-center items-center text-center',
+        style: `background-image: url(${bgUrl})`
+      }, [
+        h(Transition, {
+          appear: true,
+          enterFromClass: "opacity-0 translate-y-10",
+          enterToClass: "opacity-100 translate-y-0"
         }, [
-          h('div', { class: 'container-message' }, [
-            h("div", {
-              class: "title",
-            }, [
-              h('strong', slide.data.title),
-              h('strong', slide.data.message)
-            ])
-          ]),
+          h("div", {
+            class: "font-sans w-1/2 text-6xl mb-16 text-red-400 font-bold duration-500 ease-out transition-all transform"
+          }, "Bonjour je suis le titre"),
         ]),
-      ]),
-    ]) as VNode
+        h("div", {
+          class: "flex flex-row w-full justify-around items-center"
+        }, [
+          h(Transition, {
+            appear: true,
+            enterFromClass: "opacity-0 translate-y-10",
+            enterToClass: "opacity-100 translate-y-0"
+          }, [
+            h("div", {
+              class : "font-sans w-1/3 text-3xl font-bold text-blue-300 delay-200 duration-500 delay-200 ease-out transition-all transform"
+            }, "Bonjour je suis le texte 1"),
+          ]),
+          h(Transition, {
+            appear: true,
+            enterFromClass: "opacity-0 translate-y-10",
+            enterToClass: "opacity-100 translate-y-0"
+          }, [
+            h("div", {
+              class : "font-sans w-1/3 text-3xl font-bold text-blue-300 delay-300 duration-500 delay-200 ease-out transition-all transform"
+            }, "Bonjour je suis le texte 2"),
+          ]),
+          h(Transition, {
+            appear: true,
+            enterFromClass: "opacity-0 translate-y-10",
+            enterToClass: "opacity-100 translate-y-0"
+          }, [
+            h("div", {
+              class : "font-sans w-1/3 text-3xl font-bold text-blue-300 delay-500 duration-500 delay-200 ease-out transition-all transform"
+            }, "Bonjour je suis le texte 3"),
+          ])
+        ])
+      ])
   }
 }

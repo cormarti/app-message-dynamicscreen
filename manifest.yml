@@ -10,13 +10,16 @@ author:
   name: DynamicScreen
   email: bonjour@dynamicscreen.com
 privileges:
-  needs_account:
-    - type: google
-      why: Please give it and do not try to understand
-    - type: microsoft
-      why: Microsoft is good, nah i'm joking.
+    needs_account:
+        -   name: google1
+            type: google
+            why: privileges.needs_account.google.why
+        -   name: microsoft1
+            type: microsoft
+            why: privileges.needs_account.microsoft.why
 modules:
   - name: Simple Message
+    identifier: simple-message
     type: slide
     description: Display basic message with title and description
     vue:
@@ -27,6 +30,7 @@ modules:
     node:
       handler: src/handler.js
   - name: Advanced message
+    identifier: advanced-message
     type: slide
     description: Display advanced customizable message
     vue:
