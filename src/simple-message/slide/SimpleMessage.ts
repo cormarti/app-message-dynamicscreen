@@ -24,17 +24,26 @@ export default class SimpleMessageSlideModule extends SlideModule {
   };
 
   async onReady() {
-    console.log('SimpleMessage working to be ready...')
 
     return true;
   };
 
   onMounted() {
-    console.log('SimpleMessage: onMounted')
+  }
+
+  //@ts-ignore
+  onErrorTracked(err: Error, instance: Component, info: string) {
+  }
+
+  //@ts-ignore
+  onRenderTriggered(e) {
+  }
+
+  //@ts-ignore
+  onRenderTracked(e) {
   }
 
   onUpdated() {
-    console.log('SimpleMessage: onUpdated')
   }
 
   initI18n() {
@@ -64,24 +73,20 @@ export default class SimpleMessageSlideModule extends SlideModule {
     const message = ref(slide.data.message)
 
     this.context.onPrepare(async () => {
-      console.log('Message: onPrepare')
 
     });
 
     this.context.onReplay(async () => {
-      console.log('Message: onReplay')
     });
 
     this.context.onPlay(async () => {
-      console.log('Message: onPlay')
     });
 
-    // context.onPause(async () => {
+    // this.context.onPause(async () => {
     //   console.log('Message: onPause')
     // });
 
     this.context.onEnded(async () => {
-      console.log('Message: onEnded')
     });
 
     return () =>
@@ -91,21 +96,21 @@ export default class SimpleMessageSlideModule extends SlideModule {
         h(Transition, {
           appear: true,
           enterFromClass: "opacity-0 translate-y-10",
-          enterToClass: "opacity-100 translate-y-0"
-        }, [
+          enterToClass: "opacity-100 translate-y-0",
+        }, () =>
           h("div", {
-            class: "font-sans w-1/2 text-6xl mb-16 font-bold text-white duration-500 ease-out transition-all transform"
-          }, title.value),
-        ]),
+            class: "font-sans w-1/2 text-6xl mb-16 font-bold text-white duration-500 ease-out transition transform"
+          }, title.value)
+        ),
         h(Transition, {
           appear: true,
           enterFromClass: "opacity-0 translate-y-10",
-          enterToClass: "opacity-100 translate-y-0"
-        }, [
+          enterToClass: "opacity-100 translate-y-0",
+        }, () =>
           h("div", {
-            class : "font-sans w-1/2 text-5xl font-bold text-white delay-200 duration-500 delay-200 ease-out transition-all transform"
-          }, message.value)
-        ])
+            class: "font-sans w-1/2 text-5xl font-bold text-white duration-500 ease-out transition transform"
+        }, message.value)
+      )
       ])
   }
 }
