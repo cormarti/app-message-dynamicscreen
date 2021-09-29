@@ -29,7 +29,7 @@ export default class SimpleMessageSlideModule extends SlideModule {
   };
 
   onMounted() {
-    console.log('sync onMounted AGA webhook')
+    console.log('onMounted app correctly synced')
   }
 
   //@ts-ignore
