@@ -29,7 +29,7 @@ export default class SimpleMessageSlideModule extends SlideModule {
   };
 
   onMounted() {
-    console.log('sync onMounted')
+    console.log('sync onMounted webhook')
   }
 
   //@ts-ignore
