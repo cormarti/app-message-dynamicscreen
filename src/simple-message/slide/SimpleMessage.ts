@@ -29,7 +29,7 @@ export default class SimpleMessageSlideModule extends SlideModule {
   };
 
   onMounted() {
-    console.log('onMounted app correctly synced')
+    console.log('onMoun')
   }
 
   //@ts-ignore
