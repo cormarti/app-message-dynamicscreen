@@ -29,9 +29,7 @@ export default class SimpleMessageSlideModule extends SlideModule {
   };
 
   onMounted() {
-    console.log('onMounted')
-    this.context.motion.animate("#title", {y: [50, 0], opacity: [0, 1]}, {duration: 0.5});
-    this.context.motion.animate("#message", {y: [50, 0], opacity: [0, 1]}, {duration: 0.5, delay: 0.3});
+    console.log('onMount')
   }
 
   //@ts-ignore
@@ -83,6 +81,9 @@ export default class SimpleMessageSlideModule extends SlideModule {
     });
 
     this.context.onPlay(async () => {
+      this.context.motion.animate("#title", {y: [50, 0], opacity: [0, 1]}, {duration: 0.5});
+      this.context.motion.animate("#message", {y: [50, 0], opacity: [0, 1]}, {duration: 0.5, delay: 0.3});
+      console.log("ON PLAY CALLED")
     });
 
     // this.context.onPause(async () => {
