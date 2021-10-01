@@ -8,7 +8,7 @@ import {
   SlideModule
 } from "dynamicscreen-sdk-js";
 
-import { VNode } from 'vue';
+import {onMounted, VNode} from 'vue';
 import i18next from "i18next";
 
 const en = require("../../../languages/en.json");
@@ -29,7 +29,9 @@ export default class SimpleMessageSlideModule extends SlideModule {
   };
 
   onMounted() {
-    console.log('onMoun')
+    console.log('onMounted')
+    this.context.motion.animate("#title", {y: [50, 0], opacity: [0, 1]}, {duration: 0.5});
+    this.context.motion.animate("#message", {y: [50, 0], opacity: [0, 1]}, {duration: 0.5, delay: 0.3});
   }
 
   //@ts-ignore
@@ -91,27 +93,18 @@ export default class SimpleMessageSlideModule extends SlideModule {
     });
 
     return () =>
-      h("div", {
-        class: 'h-full w-full flex flex-col justify-center items-center ' + bgColor.value
-      }, [
-        h(Transition, {
-          appear: true,
-          enterFromClass: "opacity-0 translate-y-10",
-          enterToClass: "opacity-100 translate-y-0",
-        }, () =>
+        h("div", {
+          class: 'h-full w-full flex flex-col justify-center items-center ' + bgColor.value
+        }, [
           h("div", {
-            class: "font-sans w-1/2 text-6xl mb-16 font-bold text-white duration-500 ease-out transition transform"
-          }, title.value)
-        ),
-        h(Transition, {
-          appear: true,
-          enterFromClass: "opacity-0 translate-y-10",
-          enterToClass: "opacity-100 translate-y-0",
-        }, () =>
+            class: "font-sans w-1/2 text-6xl mb-16 font-bold text-white text-center",
+            id: "title"
+          }, title.value),
+
           h("div", {
-            class: "font-sans w-1/2 text-5xl font-bold text-white duration-500 ease-out transition transform"
-        }, message.value)
-      )
-      ])
+            class : "message font-sans w-1/2 text-5xl font-bold text-white text-center opacity-0",
+            id: "message"
+          }, message.value)
+        ])
   }
 }
