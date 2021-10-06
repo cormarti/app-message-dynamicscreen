@@ -2,7 +2,7 @@
 id: app-message-dynamicscreen
 name: app.name
 description: app.description
-logo: app.logo
+logo: ./resources/img/Donatello.jpeg
 version: 0.2.0
 channel: stable
 api-level: 1
@@ -18,21 +18,23 @@ privileges:
             type: microsoft
             why: privileges.needs_account.microsoft.why
 modules:
-    - name: Simple Message
+    - name: modules.simple-message.name
+      logo: modules.simple-message.logo
       identifier: simple-message
       type: slide
-      description: Display basic message with title and description
+      description: modules.simple-message.description
       vue:
           component: src/simple-message/slide/SimpleMessage.ts
-          options: src/simple-message/SimpleMessageOptions.vue
+          options: src/simple-message/SimpleMessageOptions.ts
       php:
           handler: Vendor\DynamicScreenMessage\MessageHandler
       node:
           handler: src/handler.js
-    - name: Advanced message
+    - name: modules.advanced-message.name
+      logo: modules.advanced-message.logo
       identifier: advanced-message
       type: slide
-      description: Display advanced customizable message
+      description: modules.advanced-message.description
       vue:
           component: src/advanced-message/slide/AdvancedMessage.ts
           options: src/advanced-message/AdvancedMessageOptions.vue

@@ -8,7 +8,6 @@ import {
   SlideModule
 } from "dynamicscreen-sdk-js";
 
-import { VNode } from 'vue';
 import i18next from "i18next";
 
 const en = require("../../../languages/en.json");
@@ -24,12 +23,11 @@ export default class SimpleMessageSlideModule extends SlideModule {
   };
 
   async onReady() {
-
     return true;
   };
 
   onMounted() {
-    console.log('onMoun')
+    console.log('onMounted simple-message')
   }
 
   //@ts-ignore
@@ -94,24 +92,12 @@ export default class SimpleMessageSlideModule extends SlideModule {
       h("div", {
         class: 'h-full w-full flex flex-col justify-center items-center ' + bgColor.value
       }, [
-        h(Transition, {
-          appear: true,
-          enterFromClass: "opacity-0 translate-y-10",
-          enterToClass: "opacity-100 translate-y-0",
-        }, () =>
-          h("div", {
-            class: "font-sans w-1/2 text-6xl mb-16 font-bold text-white duration-500 ease-out transition transform"
-          }, title.value)
-        ),
-        h(Transition, {
-          appear: true,
-          enterFromClass: "opacity-0 translate-y-10",
-          enterToClass: "opacity-100 translate-y-0",
-        }, () =>
-          h("div", {
-            class: "font-sans w-1/2 text-5xl font-bold text-white duration-500 ease-out transition transform"
-        }, message.value)
-      )
-      ])
+        h("div", {
+          class: "font-sans w-1/2 text-6xl mb-16 font-bold text-white duration-500 ease-out transition transform"
+        }, title.value),
+        h("div", {
+          class: "font-sans w-1/2 text-5xl font-bold text-white duration-500 ease-out transition transform"
+        }, message.value),
+      ]);
   }
 }
