@@ -27,7 +27,7 @@ export default class SimpleMessageSlideModule extends SlideModule {
   };
 
   onMounted() {
-    console.log('onMounted simple-message')
+
   }
 
   //@ts-ignore
@@ -79,6 +79,9 @@ export default class SimpleMessageSlideModule extends SlideModule {
     });
 
     this.context.onPlay(async () => {
+      this.context.motion.animate("#title", {y: [50, 0], opacity: [0, 1]}, {duration: 0.5});
+      this.context.motion.animate("#message", {y: [50, 0], opacity: [0, 1]}, {duration: 0.5, delay: 0.3});
+      console.log("ON PLAY CALLED")
     });
 
     // this.context.onPause(async () => {
@@ -89,15 +92,18 @@ export default class SimpleMessageSlideModule extends SlideModule {
     });
 
     return () =>
-      h("div", {
-        class: 'h-full w-full flex flex-col justify-center items-center ' + bgColor.value
-      }, [
         h("div", {
-          class: "font-sans w-1/2 text-6xl mb-16 font-bold text-white duration-500 ease-out transition transform"
-        }, title.value),
-        h("div", {
-          class: "font-sans w-1/2 text-5xl font-bold text-white duration-500 ease-out transition transform"
-        }, message.value),
-      ]);
+          class: 'h-full w-full flex flex-col justify-center items-center ' + bgColor.value
+        }, [
+          h("div", {
+            class: "font-sans w-1/2 text-6xl mb-16 font-bold text-white text-center",
+            id: "title"
+          }, title.value),
+
+          h("div", {
+            class : "message font-sans w-1/2 text-5xl font-bold text-white text-center opacity-0",
+            id: "message"
+          }, message.value)
+        ])
   }
 }
