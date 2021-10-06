@@ -2,6 +2,7 @@
     "app": {
         "name": "Message",
         "description": "Afficher de beaux message, comme un camion <3",
+        "logo": "fa fa-info-circle",
         "author": {
             "name": "DynamicScreen",
             "email": "bonjour@dynamicscreen.com",
@@ -18,11 +19,13 @@
     "modules": {
         "simple_message": {
             "name": "Message simple",
-            "description": "Afficher un titre et une description, simple comme bonjour !"
+            "description": "Afficher un titre et une description, simple comme bonjour !",
+            "logo": "fas fa-adjust"
         },
         "advanced_message": {
             "name": "Message intéractif",
-            "description": "Afficher un message interactif customisable !"
+            "description": "Afficher un message interactif customisable !",
+            "logo": "fas fa-anchor"
         }
     }
 }

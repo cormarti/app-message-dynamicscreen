@@ -2,6 +2,7 @@
     "app": {
         "name": "Message",
         "description": "Display beautiful message, as trucks are",
+        "logo": "fa fa-info-circle",
         "author": {
             "name": "DynamicScreen",
             "email": "bonjour@dynamicscreen.com",
@@ -18,11 +19,13 @@
     "modules": {
         "simple_message": {
             "name": "Basic message",
-            "description": "Display title and description, easy peasy"
+            "description": "Display title and description, easy peasy",
+            "logo": "fas fa-adjust"
         },
         "advanced_message": {
             "name": "Interactive message",
-            "description": "Display customizable advanced message !"
+            "description": "Display customizable advanced message !",
+            "logo": "fas fa-anchor"
         }
     }
 }
