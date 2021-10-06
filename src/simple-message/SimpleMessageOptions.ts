@@ -65,11 +65,7 @@ export default class SimpleMessageOptionsModule extends SlideModule {
   setup(props, ctx, update, OptionsContext) {
     const { h, reactive, ref } = ctx;
 
-    const { TextInput } = OptionsContext.component
-
-    this.context.onPrepare(async () => {
-
-    });
+    const { TextInput } = OptionsContext.components
 
     return () =>
       h(TextInput, {
