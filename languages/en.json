@@ -17,12 +17,12 @@
         }
     },
     "modules": {
-        "simple_message": {
+        "simple-message": {
             "name": "Basic message",
             "description": "Display title and description, easy peasy",
             "logo": "fas fa-adjust"
         },
-        "advanced_message": {
+        "advanced-message": {
             "name": "Interactive message",
             "description": "Display customizable advanced message !",
             "logo": "fas fa-anchor"
