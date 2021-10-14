@@ -6,6 +6,7 @@ logo: ./resources/img/Donatello.jpeg
 version: 0.2.0
 channel: stable
 api-level: 1
+color: red
 author:
     name: DynamicScreen
     email: bonjour@dynamicscreen.com
@@ -21,6 +22,7 @@ modules:
     - name: modules.simple-message.name
       logo: modules.simple-message.logo
       identifier: simple-message
+      color: #7A00D4
       type: slide
       description: modules.simple-message.description
       vue:
@@ -33,6 +35,7 @@ modules:
     - name: modules.advanced-message.name
       logo: modules.advanced-message.logo
       identifier: advanced-message
+      color: blue
       type: slide
       description: modules.advanced-message.description
       vue:

@@ -68,9 +68,18 @@ export default class SimpleMessageOptionsModule extends SlideModule {
     const { TextInput } = OptionsContext.components
 
     return () =>
-      h(TextInput, {
-        modelValue: props.modelValue.name,
-        "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, name: value })
-      })
+      h("div", {
+
+      }, () => {
+        h(TextInput, {
+          modelValue: props.modelValue.title,
+          "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, title: value })
+        }),
+        h(TextInput, {
+          modelValue: props.modelValue.text,
+          "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, text: value })
+        })
+      }
+    )
   }
 }
