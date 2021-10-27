@@ -45,6 +45,7 @@ export default class SimpleMessageOptionsModule extends SlideModule {
   }
 
   onUpdated() {
+    console.log('on updated')
   }
 
   initI18n() {
@@ -67,8 +68,9 @@ export default class SimpleMessageOptionsModule extends SlideModule {
 
     const { TextInput, ColorPicker } = OptionsContext.components
 
+    console.log('in setup before return h')
     return () =>
-      h("div", {}, () => [
+      h("div", {}, [
         h(TextInput, {
           ...update("title")
         }),
