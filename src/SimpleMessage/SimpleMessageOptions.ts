@@ -66,20 +66,20 @@ export default class SimpleMessageOptionsModule extends SlideModule {
   setup(props, ctx, update: updateValue, OptionsContext) {
     const { h, reactive, ref } = ctx;
 
-    const { TextInput, ColorPicker } = OptionsContext.components
+    const { Field, TextInput, ColorPicker } = OptionsContext.components
 
     console.log('in setup before return h')
     return () =>
       h("div", {}, [
-        h(TextInput, {
-          ...update("title")
-        }),
-        h(TextInput, {
-          ...update("message")
-        }),
-        h(ColorPicker, {
-          ...update("background_color")
-        })
+        h(Field, { label: "Titre" }, [
+          h(TextInput, {...update("title")})
+        ]),
+        h(Field, { label: "Message" }, [
+          h(TextInput, {...update("message")})
+        ]),
+        h(Field, { label: "Couleur de fond" }, [
+          h(ColorPicker, {...update("background_color")})
+        ]),
       ]
     )
   }
