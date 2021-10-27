@@ -1,25 +1,18 @@
 {
     "app": {
         "name": "Message",
-        "description": "Display beautiful message, as trucks are",
-        "logo": "fa fa-info-circle",
+        "description": "Display few kind of messages.",
+        "logo": "fa fa-comments",
         "author": {
             "name": "DynamicScreen",
             "email": "bonjour@dynamicscreen.com",
-            "note": "Written with love <3 Buy me a cofee @ itsajoke.com !"
-        }
-    },
-    "privileges": {
-        "needs_account": {
-            "google": {
-                "why": "Because it's required..."
-            }
+            "note": "Buy me a coffee @ DynamicScreen.com !"
         }
     },
     "modules": {
         "simple-message": {
             "name": "Basic message",
-            "description": "Display title and description, easy peasy",
+            "description": "Display a simple message, with description and background color.",
             "logo": "fas fa-adjust"
         },
         "advanced-message": {

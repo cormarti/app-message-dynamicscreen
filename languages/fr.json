@@ -1,30 +1,23 @@
 {
     "app": {
         "name": "Message",
-        "description": "Afficher de beaux message, comme un camion <3",
-        "logo": "fa fa-info-circle",
+        "description": "Afficher différents types de messages.",
+        "logo": "fa fa-comments",
         "author": {
             "name": "DynamicScreen",
             "email": "bonjour@dynamicscreen.com",
             "note": "Ecrit avec amour <3"
         }
     },
-    "privileges": {
-        "needs_account": {
-            "google": {
-                "why": "Parce que c'est comme ça"
-            }
-        }
-    },
     "modules": {
         "simple-message": {
             "name": "Message simple",
-            "description": "Afficher un titre et une description, simple comme bonjour !",
+            "description": "Afficher un titre, une description et une couleur de fond.",
             "logo": "fas fa-adjust"
         },
         "advanced-message": {
-            "name": "Message intéractif",
-            "description": "Afficher un message interactif customisable !",
+            "name": "Message détaillé",
+            "description": "Afficher un message détaillé et customisable !",
             "logo": "fas fa-anchor"
         }
     }
