@@ -81,16 +81,16 @@ export default class SimpleMessageSlideModule extends SlideModule {
     this.context.onPlay(async () => {
       this.context.anime({
         targets: "#title",
-        translateY: [-50, 0],
+        translateY: [50, 0],
         opacity: [0, 1],
-        duration: 2000,
+        duration: 500,
       });
       this.context.anime({
         targets: "#message",
-        translateY: [-50, 0],
+        translateY: [50, 0],
         opacity: [0, 1],
-        duration: 2000,
-        delay: 1000
+        duration: 500,
+        delay: 300
       });
       console.log("ON PLAY CALLED")
     });
