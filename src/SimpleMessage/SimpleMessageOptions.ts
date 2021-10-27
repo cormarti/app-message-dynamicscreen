@@ -71,17 +71,15 @@ export default class SimpleMessageOptionsModule extends SlideModule {
       h("div", {
 
       }, () => {
-        return [h(TextInput, {
+        return h(TextInput, {
           ...update("title")
         }),
         h(TextInput, {
-          modelValue: props.modelValue.message,
           ...update("message")
         }),
         h(ColorPicker, {
-          modelValue: props.modelValue.background_color,
           ...update("background_color")
-        })]
+        })
       }
     )
   }
