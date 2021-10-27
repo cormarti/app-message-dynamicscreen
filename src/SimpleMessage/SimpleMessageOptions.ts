@@ -71,7 +71,7 @@ export default class SimpleMessageOptionsModule extends SlideModule {
       h("div", {
 
       }, () => {
-        return h(TextInput, {
+        h(TextInput, {
           ...update("title")
         }),
         h(TextInput, {
