@@ -68,9 +68,7 @@ export default class SimpleMessageOptionsModule extends SlideModule {
     const { TextInput, ColorPicker } = OptionsContext.components
 
     return () =>
-      h("div", {
-
-      }, () => {
+      h("div", {}, () => [
         h(TextInput, {
           ...update("title")
         }),
@@ -80,7 +78,7 @@ export default class SimpleMessageOptionsModule extends SlideModule {
         h(ColorPicker, {
           ...update("background_color")
         })
-      }
+      ]
     )
   }
 }
