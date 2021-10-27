@@ -30,10 +30,11 @@ modules:
       color: blue
       type: slide
       description: modules.advanced-message.description
-      vue:
-          component: src/AdvancedMessage/AdvancedMessage.ts
-          options: src/AdvancedMessage/AdvancedMessageOptions.ts
-      php:
-          handler: \DynamicScreen\Message\AdvancedMessage\AdvancedMessageHandler
-      node:
-          handler: src/handler.js
+      options:
+        vue:
+            component: src/AdvancedMessage/AdvancedMessage.ts
+            options: src/AdvancedMessage/AdvancedMessageOptions.ts
+        php:
+            handler: \DynamicScreen\Message\AdvancedMessage\AdvancedMessageHandler
+        node:
+            handler: src/handler.js
