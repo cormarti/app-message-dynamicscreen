@@ -2,7 +2,7 @@
 id: app-message-dynamicscreen
 name: app.name
 description: app.description
-logo: ./resources/img/Donatello.jpeg
+logo: far fa-comments-alt
 version: 0.2.0
 channel: stable
 api-level: 1
@@ -10,14 +10,6 @@ color: red
 author:
     name: DynamicScreen
     email: bonjour@dynamicscreen.com
-privileges:
-    needs_account:
-        -   identifier: google1
-            type: google
-            why: privileges.needs_account.google.why
-        -   identifier: microsoft1
-            type: microsoft
-            why: privileges.needs_account.microsoft.why
 modules:
     - name: modules.simple-message.name
       logo: modules.simple-message.logo
@@ -26,10 +18,10 @@ modules:
       type: slide
       description: modules.simple-message.description
       vue:
-          component: src/simple-message/slide/SimpleMessage.ts
-          options: src/simple-message/SimpleMessageOptions.ts
+          component: src/SimpleMessage/SimpleMessage.ts
+          options: src/SimpleMessage/SimpleMessageOptions.ts
       php:
-          handler: Vendor\DynamicScreenMessage\MessageHandler
+          handler: \DynamicScreen\Message\SimpleMessage\SimpleMessageHandler
       node:
           handler: src/handler.js
     - name: modules.advanced-message.name
@@ -39,9 +31,9 @@ modules:
       type: slide
       description: modules.advanced-message.description
       vue:
-          component: src/advanced-message/slide/AdvancedMessage.ts
-          options: src/advanced-message/AdvancedMessageOptions.vue
+          component: src/AdvancedMessage/AdvancedMessage.ts
+          options: src/AdvancedMessage/AdvancedMessageOptions.ts
       php:
-          handler: Vendor\DynamicScreenMessage\MessageHandler
+          handler: \DynamicScreen\Message\AdvancedMessage\AdvancedMessageHandler
       node:
           handler: src/handler.js
