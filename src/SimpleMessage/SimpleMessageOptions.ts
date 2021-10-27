@@ -64,25 +64,22 @@ export default class SimpleMessageOptionsModule extends SlideModule {
     const { h, reactive, ref } = ctx;
 
     const { TextInput, ColorPicker } = OptionsContext.components
-
     return () =>
       h("div", {
 
       }, () => {
-        h(TextInput, {
+        return [h(TextInput, {
           modelValue: props.modelValue.title,
           "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, title: value })
         }),
         h(TextInput, {
-          modelValue: props.modelValue.text,
-          "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, text: value })
+          modelValue: props.modelValue.message,
+          "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, message: value })
         }),
         h(ColorPicker, {
-          modelValue: props.modelValue.color,
-          id: props.id,
-          disabled: props.disabled,
-          "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, color: value })
-        })
+          modelValue: props.modelValue.background_color,
+          "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, background_color: value })
+        })]
       }
     )
   }
