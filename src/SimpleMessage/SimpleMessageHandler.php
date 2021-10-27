@@ -20,7 +20,7 @@ class SimpleMessageHandler extends SlideHandler
         return [
             'title' => $slide->getOption('title', $default['title']),
             'message' => $slide->getOption('message', $default['message']),
-            'backgroundColor' => $slide->getOption('backgroundColor', $default['color']),
+            'backgroundColor' => $slide->getOption('backgroundColor', $default['backgroundColor']),
         ];
     }
 
