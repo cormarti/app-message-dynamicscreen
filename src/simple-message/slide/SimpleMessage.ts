@@ -79,8 +79,29 @@ export default class SimpleMessageSlideModule extends SlideModule {
     });
 
     this.context.onPlay(async () => {
-      this.context.motion.animate("#title", {y: [50, 0], opacity: [0, 1]}, {duration: 0.5});
-      this.context.motion.animate("#message", {y: [50, 0], opacity: [0, 1]}, {duration: 0.5, delay: 0.3});
+      this.context.anime({
+        targets: "#title",
+        keyframes: [
+            { translateY: 50 },
+            { opacity: 0 },
+            { translateY: 0 },
+            { opacity: 1 },
+        ],
+        duration: 500,
+        easing: 'easeInElastic(1, 1)'
+      });
+      this.context.anime({
+        targets: "#message",
+        keyframes: [
+          { translateY: 50 },
+          { opacity: 0 },
+          { translateY: 0 },
+          { opacity: 1 },
+        ],
+        duration: 500,
+        easing: 'easeInElastic(1, 1)',
+        delay: 300
+      });
       console.log("ON PLAY CALLED")
     });
 
