@@ -13,6 +13,8 @@ import i18next from "i18next";
 const en = require("../../languages/en.json");
 const fr = require("../../languages/fr.json");
 
+type updateValue = (key: string) => { modelValue: any, "onUpdate:modelValue": (value: any) => void }
+
 export default class SimpleMessageOptionsModule extends SlideModule {
   constructor(context: ISlideContext) {
     super(context);
@@ -60,17 +62,17 @@ export default class SimpleMessageOptionsModule extends SlideModule {
   };
 
   // @ts-ignore
-  setup(props, ctx, update, OptionsContext) {
+  setup(props, ctx, update: updateValue, OptionsContext) {
     const { h, reactive, ref } = ctx;
 
     const { TextInput, ColorPicker } = OptionsContext.components
+
     return () =>
       h("div", {
 
       }, () => {
         return [h(TextInput, {
-          modelValue: props.modelValue.title,
-          "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, title: value })
+          ...update("title")
         }),
         h(TextInput, {
           modelValue: props.modelValue.message,
