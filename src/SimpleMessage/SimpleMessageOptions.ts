@@ -76,11 +76,11 @@ export default class SimpleMessageOptionsModule extends SlideModule {
         }),
         h(TextInput, {
           modelValue: props.modelValue.message,
-          "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, message: value })
+          ...update("message")
         }),
         h(ColorPicker, {
           modelValue: props.modelValue.background_color,
-          "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, background_color: value })
+          ...update("background_color")
         })]
       }
     )
