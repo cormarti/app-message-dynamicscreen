@@ -2,4 +2,5 @@
 node_modules
 dist/
 vendor/
+*.webpack.config.js
 

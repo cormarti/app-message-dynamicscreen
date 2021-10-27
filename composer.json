@@ -1,5 +1,23 @@
 {
     "require": {
-        "unsplash/unsplash": "^3.1"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./../../../../dynamicscreen/sdk-php",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DynamicScreen\\Message\\": "src/"
+        }
     }
 }

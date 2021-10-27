@@ -17,13 +17,14 @@ modules:
       color: #7A00D4
       type: slide
       description: modules.simple-message.description
-      vue:
-          component: src/SimpleMessage/SimpleMessage.ts
-          options: src/SimpleMessage/SimpleMessageOptions.ts
-      php:
-          handler: \DynamicScreen\Message\SimpleMessage\SimpleMessageHandler
-      node:
-          handler: src/handler.js
+      options:
+          vue:
+              component: src/SimpleMessage/SimpleMessage.ts
+              options: src/SimpleMessage/SimpleMessageOptions.ts
+          php:
+              handler: \DynamicScreen\Message\SimpleMessage\SimpleMessageHandler
+          node:
+              handler: src/handler.js
     - name: modules.advanced-message.name
       logo: modules.advanced-message.logo
       identifier: advanced-message
