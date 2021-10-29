@@ -99,18 +99,18 @@ export default class SimpleMessageSlideModule extends SlideModule {
     this.context.onPlay(async () => {
       this.context.anime({
         targets: "#title",
-        translateY: [80, 0],
+        translateY: [50, 0],
         opacity: [0, 1],
         duration: 500,
-        easing: 'linear'
+        easing: 'easeOutQuad'
       });
       this.context.anime({
         targets: "#message",
-        translateY: [80, 0],
+        translateY: [50, 0],
         opacity: [0, 1],
         duration: 500,
-        delay: 300,
-        easing: 'linear'
+        delay: 200,
+        easing: 'easeOutQuad'
       });
       console.log("ON PLAY CALLED")
     });
@@ -132,7 +132,7 @@ export default class SimpleMessageSlideModule extends SlideModule {
           }, title.value),
 
           h("div", {
-            class : "message font-sans w-1/2 text-5xl font-bold text-white text-center opacity-0",
+            class : "message font-sans w-1/2 text-5xl font-bold text-white text-center",
             id: "message"
           }, message.value)
         ])
