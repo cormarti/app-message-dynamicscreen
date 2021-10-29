@@ -1,4 +1,13 @@
 {
+    "name": "dynamicscreen/app-message",
+    "description": "Message app for DynamicScreen SaaS",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "DynamicScreen",
+            "email": "bonjour@dynamicscreen.com"
+        }
+    ],
     "require": {
     },
     "config": {

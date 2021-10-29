@@ -64,11 +64,10 @@ export default class SimpleMessageOptionsModule extends SlideModule {
 
   // @ts-ignore
   setup(props, ctx, update: updateValue, OptionsContext) {
-    const { h, reactive, ref } = ctx;
+    const { h } = ctx;
 
     const { Field, TextInput, ColorPicker } = OptionsContext.components
 
-    console.log('in setup before return h')
     return () =>
       h("div", {}, [
         h(Field, { label: "Titre" }, [

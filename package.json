@@ -1,7 +1,7 @@
 {
   "name": "dynamicscreen-message",
   "version": "0.2.0",
-  "description": "Display beautiful messages",
+  "description": "Message app for DynamicScreen SaaS",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
