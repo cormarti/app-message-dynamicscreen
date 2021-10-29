@@ -102,6 +102,7 @@ export default class SimpleMessageSlideModule extends SlideModule {
         translateY: [50, 0],
         opacity: [0, 1],
         duration: 500,
+        delay: 200,
         easing: 'easeOutQuad'
       });
       this.context.anime({
@@ -109,7 +110,7 @@ export default class SimpleMessageSlideModule extends SlideModule {
         translateY: [50, 0],
         opacity: [0, 1],
         duration: 500,
-        delay: 200,
+        delay: 400,
         easing: 'easeOutQuad'
       });
       console.log("ON PLAY CALLED")
