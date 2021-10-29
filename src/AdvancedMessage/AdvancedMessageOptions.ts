@@ -66,18 +66,16 @@ export default class AdvancedMessageOptionsModule extends SlideModule {
 
         const { TextInput, Field, ColorPicker } = OptionsContext.components
 
-      return () =>
-        h("div", {}, [
-            h(Field, { label: "Titre" }, [
-              h(TextInput, {  ...update.option("title") })
-            ]),
-            h(Field, { label: "Message" }, [
-              h(TextInput, {  ...update.option("message") })
-            ]),
-            h(Field, { label: "Couleur de fond" }, [
-              h(ColorPicker, {  ...update.option("background_color") })
-            ]),
-          ]
-        )
+      return () => [
+        h(Field, { label: "Titre" }, [
+          h(TextInput, {  ...update.option("title") })
+        ]),
+        h(Field, { label: "Message" }, [
+          h(TextInput, {  ...update.option("message") })
+        ]),
+        h(Field, { label: "Couleur de fond" }, [
+          h(ColorPicker, {  ...update.option("background_color") })
+        ]),
+      ]
     }
 }

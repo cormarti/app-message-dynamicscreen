@@ -69,8 +69,7 @@ export default class SimpleMessageOptionsModule extends SlideModule {
 
     const { Field, TextInput, ColorPicker } = OptionsContext.components
 
-    return () =>
-      h("div", {}, [
+    return () => [
         h(Field, { label: "Titre" }, [
           h(TextInput, {...update.option("title")})
         ]),
