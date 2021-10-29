@@ -5,7 +5,8 @@ import {
     IGuardsManager,
     ISlideContext,
     IPublicSlide,
-    SlideModule
+    SlideModule,
+  SlideUpdateFunctions
 } from "dynamicscreen-sdk-js";
 
 import i18next from "i18next";
@@ -60,29 +61,23 @@ export default class AdvancedMessageOptionsModule extends SlideModule {
     };
 
 // @ts-ignore
-    setup(props, ctx, update, OptionsContext) {
+    setup(props, ctx, update: SlideUpdateFunctions, OptionsContext) {
         const { h, reactive, ref } = ctx;
 
-        const { TextInput, ColorPicker } = OptionsContext.components
+        const { TextInput, Field, ColorPicker } = OptionsContext.components
 
-        return () =>
-            h("div", {}, () => {
-                return [
-                    h(TextInput, {
-                        modelValue: props.modelValue.title,
-                        "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, title: value })
-                    }),
-                    h(TextInput, {
-                        modelValue: props.modelValue.text,
-                        "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, text: value })
-                    }),
-                    h(ColorPicker, {
-                        modelValue: props.modelValue.color,
-                        id: props.id,
-                        disabled: props.disabled,
-                        "onUpdate:modelValue": (value: string) => ctx.$emit('update:modelValue', {...props.options, color: value })
-                    })
-                ]
-            })
+      return () =>
+        h("div", {}, [
+            h(Field, { label: "Titre" }, [
+              h(TextInput, {  ...update.option("title") })
+            ]),
+            h(Field, { label: "Message" }, [
+              h(TextInput, {  ...update.option("message") })
+            ]),
+            h(Field, { label: "Couleur de fond" }, [
+              h(ColorPicker, {  ...update.option("background_color") })
+            ]),
+          ]
+        )
     }
 }
